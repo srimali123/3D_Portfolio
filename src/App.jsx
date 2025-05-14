@@ -1,14 +1,17 @@
-import { useState } from 'react'
-
+import React from "react";
+import Hero from "./sections/Hero";
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
-    <>
-      <h1>hello</h1>
-    </>
-  )
+    <main>
+      <div>
+      <Hero />
+      </div>
+   
+    </main>
+  );
 }
 
-export default App
+export default App;
