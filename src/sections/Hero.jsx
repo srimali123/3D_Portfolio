@@ -2,8 +2,24 @@ import React from "react";
 import { words } from "../constants";
 import Button from "../components/Button";
 import HeroExperince from "../components/HeroModels/HeroExperince";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import AnimatedCounter from "../components/AnimatedCounter";
 
 const Hero = () => {
+  useGSAP(() => {
+    gsap.fromTo(
+      ".hero-text h1",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power2.inOut",
+      }
+    );
+  });
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
@@ -37,21 +53,27 @@ const Hero = () => {
               <h1>into Real Projects</h1>
               <h1> that Deliver Results </h1>
             </div>
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Hi, I'm Srimali — a developer based in Sri Lanka with a passion for code.</p>
+            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
+              Hi, I'm Srimali — a developer based in Sri Lanka with a passion
+              for code.
+            </p>
 
-            <Button className='md:w-80 md:h-16 w-60 h-12 ' id='button' text="See my Work"/>
+            <Button
+              className="md:w-80 md:h-16 w-60 h-12 "
+              id="button"
+              text="See my Work"
+            />
           </div>
         </header>
 
         {/* right-section */}
-       <figure>
-
-        <div className=" hero-3d-layout ">
-<HeroExperince/>
-        </div>
-       </figure>
-
+        <figure>
+          <div className=" hero-3d-layout ">
+            <HeroExperince />
+          </div>
+        </figure>
       </div>
+      <AnimatedCounter/>
     </section>
   );
 };
